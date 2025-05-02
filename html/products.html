@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - Website bán máy cơ khí</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/check.js"></script>
+    <link rel="stylesheet" href="../css/products.css">
+    <script src="../js/header.js"></script>
+    <script src="../js/products.js"></script>
+</head>
+
+<body>
+    <header class="bg-primary text-white py-3">
+        <div class="container-lg">
+            <div class="d-flex justify-content-between align-items-center">
+
+                <h1 class="logo m-0">LOBEO MACHINERY</h1>
+
+                <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
+                    <div class="container-fluid p-0">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./index.html">Trang chủ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./gioithieu.html">Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./news.html">Tin tức</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./products.html">sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./policies.html">Liên Hệ</a>
+                                </li>
+                            </ul>
+
+                            <form class="d-flex me-3" role="search">
+                                <input class="form-control form-control-sm" type="search" placeholder="Tìm máy cơ khí..." aria-label="Search">
+                                <button class="btn btn-sm btn-outline-light ms-2" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <div class="d-flex align-items-center">
+
+                    <div class="position-relative me-3">
+                        <a href="../html/cart.html" class="text-white fs-5">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+                            0
+                        </span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="text-white fs-5 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="../html/login.html"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a></li>
+                            <li><a class="dropdown-item" href="../html/register.html"><i class="fas fa-user-plus me-2"></i>Đăng ký</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i>Tài khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-lg my-5">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../html/index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
+            </ol>
+        </nav>
+
+
+        <div class="filter-section">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="category-filter" class="form-label">Danh mục</label>
+                    <select class="form-select" id="category-filter">
+                        <option selected>Tất cả danh mục</option>
+                        <option value="may-tien">Máy tiện</option>
+                        <option value="may-phay">Máy phay</option>
+                        <option value="may-cat-laser">Máy cắt laser</option>
+                        <option value="phu-tung">Phụ tùng</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="price-filter" class="form-label">Mức giá</label>
+                    <select class="form-select" id="price-filter">
+                        <option selected>Tất cả mức giá</option>
+                        <option value="duoi-100">Dưới 100 triệu</option>
+                        <option value="100-500">100 - 500 triệu</option>
+                        <option value="tren-500">Trên 500 triệu</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="brand-filter" class="form-label">Hãng sản xuất</label>
+                    <select class="form-select" id="brand-filter">
+                        <option selected>Tất cả hãng</option>
+                        <option value="mazak">Mazak</option>
+                        <option value="haas">Haas</option>
+                        <option value="doosan">Doosan</option>
+                        <option value="fanuc">Fanuc</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button class="btn btn-primary w-100">Lọc sản phẩm</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="may-tien" class="product-category">
+            <h2 class="mb-4"><i class="fas fa-cog me-2"></i>Máy tiện CNC</h2>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../img/may-tien-1.jpg" alt="Máy tiện CNC LOBEO T-1000" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy tiện CNC LOBEO T-1000</h3>
+                            <div class="product-price">450.000.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../img/may-tien-2.jpg" alt="Máy tiện CNC đa năng T-800" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy tiện CNC đa năng T-800</h3>
+                            <div class="product-price">680.000.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../img/may-tien-3.jpg" alt="Máy tiện CNC cao cấp T-2000" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy tiện CNC cao cấp T-2000</h3>
+                            <div class="product-price">1.250.000.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="may-phay" class="product-category">
+            <h2 class="mb-4"><i class="fas fa-cogs me-2"></i>Máy phay công nghiệp</h2>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../../img/may-phay-1.jpg" alt="Máy phay CNC LOBEO F-500" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy phay CNC LOBEO F-500</h3>
+                            <div class="product-price">720.000.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../../img/may-phay-2.jpg" alt="Máy phay đứng F-300" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy phay đứng F-300</h3>
+                            <div class="product-price">550.000.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../../img/may-phay-3.jpg" alt="Máy phay ngang F-700" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy phay ngang F-700</h3>
+                            <div class="product-price">890.000.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="may-cat-laser" class="product-category">
+            <h2 class="mb-4"><i class="fas fa-cut me-2"></i>Máy cắt laser</h2>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../../img/laser-1.jpg" alt="Máy cắt laser LOBEO L-1000" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy cắt laser LOBEO L-1000</h3>
+                            <div class="product-price">1.450.000.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../../img/laser-2.jpg" alt="Máy cắt laser fiber L-500" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy cắt laser fiber L-500</h3>
+                            <div class="product-price">2.200.000.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../../img/laser-3.jpg" alt="Máy cắt laser CO2 L-300" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy cắt laser CO2 L-300</h3>
+                            <div class="product-price">1.850.000.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="phu-tung" class="product-category">
+            <h2 class="mb-4"><i class="fas fa-tools me-2"></i>Phụ tùng thay thế</h2>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../../img/phu-tung-1.jpg" alt="Dao phay hợp kim" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dao phay hợp kim cao cấp</h3>
+                            <div class="product-price">3.500.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../../img/phu-tung-2.jpg" alt="Mũi khoan từ" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Mũi khoan từ chính hãng</h3>
+                            <div class="product-price">2.800.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="../../img/phu-tung-3.jpg" alt="Đầu kẹp dao" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Đầu kẹp dao BT40</h3>
+                            <div class="product-price">5.200.000 VNĐ</div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Tiếp</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container-lg text-center">
+            <p class="mb-0">&copy; 2025 - Website bán máy cơ khí</p>
+        </div>
+    </footer>
+</body>
+
+</html>

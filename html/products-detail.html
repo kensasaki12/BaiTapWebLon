@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tiện CNC T-1000 - LOBEO MACHINERY</title>
+    <!-- Load Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Load Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Load JavaScript -->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/product-detail.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <header class="bg-primary text-white py-3">
+        <div class="container-lg">
+            <div class="d-flex justify-content-between align-items-center">
+
+                <h1 class="logo m-0">LOBEO MACHINERY</h1>
+
+                <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
+                    <div class="container-fluid p-0">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./index.html">Trang chủ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./gioithieu.html">Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./news.html">Tin tức</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./products.html">sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./policies.html">Liên Hệ</a>
+                                </li>
+                            </ul>
+
+                            <form class="d-flex me-3" role="search">
+                                <input class="form-control form-control-sm" type="search" placeholder="Tìm máy cơ khí..." aria-label="Search">
+                                <button class="btn btn-sm btn-outline-light ms-2" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <div class="d-flex align-items-center">
+
+                    <div class="position-relative me-3">
+                        <a href="../html/cart.html" class="text-white fs-5">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+                            0
+                        </span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="text-white fs-5 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <a href="../../html/cart.html" class="text-white fs-5">
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i>Tài khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="bg-light py-3">
+            <div class="container-lg">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="../../html/index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="./products.html">Sản phẩm</a></li>
+                    <li class="breadcrumb-item"><a href="./products.html">Máy tiện CNC</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Máy tiện CNC T-1000</li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- Product Detail Section -->
+        <section class="product-detail-section">
+            <div class="container-lg">
+                <div class="row">
+                    <!-- Product Gallery -->
+                    <div class="col-lg-6">
+                        <div class="product-gallery">
+                            <img id="mainImage" src="../../img/product-large-1.jpg" alt="Máy tiện CNC T-1000" class="main-image">
+                            <div class="thumbnail-container">
+                                <img src="../../img/product-thumb-1.jpg" alt="Máy tiện CNC T-1000 - Ảnh 1" class="thumbnail active" onclick="changeImage('../../img/product-large-1.jpg')">
+                                <img src="../../img/product-thumb-2.jpg" alt="Máy tiện CNC T-1000 - Ảnh 2" class="thumbnail" onclick="changeImage('../../img/product-large-2.jpg')">
+                                <img src="../../img/product-thumb-3.jpg" alt="Máy tiện CNC T-1000 - Ảnh 3" class="thumbnail" onclick="changeImage('../../img/product-large-3.jpg')">
+                                <img src="../../img/product-thumb-4.jpg" alt="Máy tiện CNC T-1000 - Ảnh 4" class="thumbnail" onclick="changeImage('../../img/product-large-4.jpg')">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="col-lg-6">
+                        <div class="product-info">
+                            <h1 class="product-title">Máy tiện CNC T-1000</h1>
+                            <div class="product-price">450.000.000 VNĐ</div>
+
+                            <div class="product-meta">
+                                <span><i class="fas fa-barcode"></i> Mã SP: T1000-2025</span>
+                                <span><i class="fas fa-box-open"></i> Tình trạng: Còn hàng</span>
+                                <span><i class="fas fa-star"></i> Đánh giá: 4.9/5</span>
+                            </div>
+
+                            <div class="product-description">
+                                <p>Máy tiện CNC T-1000 là sản phẩm cao cấp nhất trong dòng máy tiện của LOBEO, được thiết kế để đáp ứng các yêu cầu gia công chính xác nhất trong ngành cơ khí chế tạo.</p>
+                                <p>Với hệ thống điều khiển Fanuc 31i-B5, máy có khả năng gia công các chi tiết phức tạp với độ chính xác lên đến 0.001mm.</p>
+                            </div>
+
+                            <div class="product-actions">
+                                <div class="quantity-selector">
+                                    <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1" id="quantity">
+                                    <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                                </div>
+                                <button class="btn btn-primary btn-lg"><i class="fas fa-shopping-cart me-2"></i>Thêm vào giỏ</button>
+                                <button class="btn btn-outline-primary btn-lg"><i class="fas fa-heart me-2"></i>Yêu thích</button>
+                            </div>
+
+                            <div class="product-share">
+                                <span class="me-2">Chia sẻ:</span>
+                                <a href="#" class="text-dark me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                <a href="#" class="text-dark me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                                <a href="#" class="text-dark me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                                <a href="#" class="text-dark"><i class="fas fa-envelope fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Tabs -->
+                <div class="product-tabs">
+                    <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs" type="button" role="tab" aria-controls="specs" aria-selected="true">Thông số kỹ thuật</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features" type="button" role="tab" aria-controls="features" aria-selected="false">Tính năng nổi bật</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Đánh giá</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="support-tab" data-bs-toggle="tab" data-bs-target="#support" type="button" role="tab" aria-controls="support" aria-selected="false">Hỗ trợ</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="productTabsContent">
+                        <!-- Specifications Tab -->
+                        <div class="tab-pane fade show active" id="specs" role="tabpanel" aria-labelledby="specs-tab">
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Model</td>
+                                    <td>T-1000</td>
+                                </tr>
+                                <tr>
+                                    <td>Hãng sản xuất</td>
+                                    <td>LOBEO MACHINERY</td>
+                                </tr>
+                                <tr>
+                                    <td>Xuất xứ</td>
+                                    <td>Nhật Bản</td>
+                                </tr>
+                                <tr>
+                                    <td>Hệ điều hành</td>
+                                    <td>Fanuc 31i-B5</td>
+                                </tr>
+                                <tr>
+                                    <td>Kích thước bàn máy</td>
+                                    <td>Ø1000mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Hành trình trục X/Z</td>
+                                    <td>800/1500mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Tốc độ trục chính</td>
+                                    <td>10-4500 vòng/phút</td>
+                                </tr>
+                                <tr>
+                                    <td>Công suất động cơ</td>
+                                    <td>15kW</td>
+                                </tr>
+                                <tr>
+                                    <td>Độ chính xác</td>
+                                    <td>±0.001mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Kích thước máy</td>
+                                    <td>3500×2000×2100mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Trọng lượng</td>
+                                    <td>6500kg</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Features Tab -->
+                        <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="features-tab">
+                            <h5 class="mb-4">Tính năng nổi bật của Máy tiện CNC T-1000</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <h6><i class="fas fa-check-circle text-primary me-2"></i> Công nghệ điều khiển tiên tiến</h6>
+                                        <p>Hệ thống điều khiển Fanuc 31i-B5 với giao diện thân thiện, dễ vận hành và lập trình.</p>
+                                    </div>
+                                    <div class="mb-4">
+                                        <h6><i class="fas fa-check-circle text-primary me-2"></i> Độ chính xác cao</h6>
+                                        <p>Độ chính xác gia công lên đến 0.001mm nhờ hệ thống trục chính và trục dẫn hướng chất lượng cao.</p>
+                                    </div>
+                                    <div class="mb-4">
+                                        <h6><i class="fas fa-check-circle text-primary me-2"></i> Tốc độ xử lý nhanh</h6>
+                                        <p>Tốc độ trục chính lên đến 4500 vòng/phút giúp gia công nhanh các vật liệu cứng.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <h6><i class="fas fa-check-circle text-primary me-2"></i> Tiết kiệm năng lượng</h6>
+                                        <p>Công nghệ động cơ servo tiết kiệm đến 30% năng lượng so với các dòng máy thông thường.</p>
+                                    </div>
+                                    <div class="mb-4">
+                                        <h6><i class="fas fa-check-circle text-primary me-2"></i> Đa dạng vật liệu gia công</h6>
+                                        <p>Có thể gia công thép, inox, hợp kim nhôm, đồng và nhiều vật liệu khác.</p>
+                                    </div>
+                                    <div class="mb-4">
+                                        <h6><i class="fas fa-check-circle text-primary me-2"></i> Bảo hành dài hạn</h6>
+                                        <p>Bảo hành 24 tháng cho toàn bộ máy và hỗ trợ kỹ thuật trọn đời.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reviews Tab -->
+                        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="text-center mb-4">
+                                        <h2 class="text-primary">4.9</h2>
+                                        <div class="mb-2">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star-half-alt text-warning"></i>
+                                        </div>
+                                        <p>Dựa trên 24 đánh giá</p>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>5 sao</span>
+                                            <span>20</span>
+                                        </div>
+                                        <div class="progress" style="height: 10px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>4 sao</span>
+                                            <span>3</span>
+                                        </div>
+                                        <div class="progress" style="height: 10px;">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 12%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>3 sao</span>
+                                            <span>1</span>
+                                        </div>
+                                        <div class="progress" style="height: 10px;">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 4%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="review-list">
+                                        <div class="review-item mb-4">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <h6>Nguyễn Văn A</h6>
+                                                <div>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                </div>
+                                            </div>
+                                            <p class="text-muted small">Đã mua ngày 15/06/2025</p>
+                                            <p>Máy chạy rất êm, độ chính xác cao hơn cả mong đợi. Dịch vụ hậu mãi của LOBEO rất tốt.</p>
+                                        </div>
+
+                                        <div class="review-item mb-4">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <h6>Trần Thị B</h6>
+                                                <div>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                </div>
+                                            </div>
+                                            <p class="text-muted small">Đã mua ngày 02/06/2025</p>
+                                            <p>Máy tiện T-1000 đã giúp chúng tôi nâng cao năng suất lên 40%. Cảm ơn LOBEO!</p>
+                                        </div>
+
+                                        <button class="btn btn-outline-primary">Xem tất cả đánh giá</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Support Tab -->
+                        <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <h5><i class="fas fa-headset text-primary me-2"></i> Hỗ trợ kỹ thuật</h5>
+                                        <p>Đội ngũ kỹ thuật viên của LOBEO luôn sẵn sàng hỗ trợ 24/7 qua các kênh:</p>
+                                        <ul>
+                                            <li>Hotline: <strong>1800 1234</strong> (Miễn phí)</li>
+                                            <li>Email: <strong>support@lobeomachinery.com</strong></li>
+                                            <li>Zalo OA: <strong>LOBEO Support</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <h5><i class="fas fa-tools text-primary me-2"></i> Dịch vụ bảo trì</h5>
+                                        <p>LOBEO cung cấp các gói bảo trì định kỳ để đảm bảo máy luôn hoạt động tốt nhất:</p>
+                                        <ul>
+                                            <li>Bảo trì cơ bản: 6 tháng/lần</li>
+                                            <li>Bảo trì nâng cao: 12 tháng/lần</li>
+                                            <li>Kiểm tra tổng thể: 24 tháng/lần</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <div class="related-products">
+                    <h3 class="mb-4">Sản phẩm liên quan</h3>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="related-product-card">
+                                <div class="product-img-container" style="height: 200px;">
+                                    <img src="../../img/product-related-1.jpg" alt="Máy tiện CNC T-800" class="product-img">
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Máy tiện CNC T-800</h5>
+                                    <div class="product-price">380.000.000 VNĐ</div>
+                                    <a href="./products-detail.html" class="btn btn-outline-primary btn-sm">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="related-product-card">
+                                <div class="product-img-container" style="height: 200px;">
+                                    <img src="../../img/product-related-2.jpg" alt="Máy tiện CNC T-1200" class="product-img">
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Máy tiện CNC T-1200</h5>
+                                    <div class="product-price">520.000.000 VNĐ</div>
+                                    <a href="./products-detail.html" class="btn btn-outline-primary btn-sm">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="related-product-card">
+                                <div class="product-img-container" style="height: 200px;">
+                                    <img src="../../img/product-related-3.jpg" alt="Máy phay CNC F-500" class="product-img">
+                                </div>
+                                <div class="product-info">
+                                    <h5 class="product-title">Máy phay CNC F-500</h5>
+                                    <div class="product-price">450.000.000 VNĐ</div>
+                                    <a href=./products-detail.html " class="btn btn-outline-primary btn-sm ">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../js/products-detail.js "></script>
+    <footer class="bg-dark text-white py-4 ">
+        <div class="container-lg ">
+            <div class="row ">
+                <div class="col-lg-4 mb-4 mb-lg-0 ">
+                    <h5 class="mb-3 ">LOBEO MACHINERY</h5>
+                    <p>Tiên phong trong lĩnh vực cung cấp máy công nghiệp và giải pháp cơ khí chính xác.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0 ">
+                    <h5 class="mb-3 ">Liên kết</h5>
+                    <ul class="list-unstyled ">
+                        <li class="mb-2 "><a href="../html/index.html " class="text-white ">Trang chủ</a></li>
+                        <li class="mb-2 "><a href="./gioithieu.html " class="text-white ">Giới thiệu</a></li>
+                        <li class="mb-2 "><a href="../news/news.html " class="text-white ">Tin tức</a></li>
+                        <li><a href="./products.html " class="text-white ">Sản phẩm</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0 ">
+                    <h5 class="mb-3 ">Liên hệ</h5>
+                    <ul class="list-unstyled ">
+                        <li class="mb-2 "><i class="fas fa-map-marker-alt me-2 "></i> Số 1, đường ABC, Hà Nội</li>
+                        <li class="mb-2 "><i class="fas fa-phone me-2 "></i> 024 1234 5678</li>
+                        <li><i class="fas fa-envelope me-2 "></i> info@lobeomachinery.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 ">
+                    <h5 class="mb-3 ">Kết nối</h5>
+                    <a href="# " class="text-white me-3 "><i class="fab fa-facebook-f fa-lg "></i></a>
+                    <a href="# " class="text-white me-3 "><i class="fab fa-twitter fa-lg "></i></a>
+                    <a href="# " class="text-white me-3 "><i class="fab fa-linkedin-in fa-lg "></i></a>
+                    <a href="# " class="text-white "><i class="fab fa-youtube fa-lg "></i></a>
+                </div>
+            </div>
+            <hr class="my-4 ">
+            <div class="text-center ">
+                <p class="mb-0 ">&copy; 2025 LOBEO MACHINERY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

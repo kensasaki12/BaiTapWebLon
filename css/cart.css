@@ -1,0 +1,43 @@
+/* cart.css */
+
+#cart-table th {
+    font-weight: 600;
+    background-color: #f8f9fa;
+}
+
+.quantity-input {
+    max-width: 50px;
+}
+
+.img-thumbnail {
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+#checkout-btn {
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+#empty-cart-message {
+    background-color: #f8f9fa;
+}
+
+#empty-cart-message i {
+    opacity: 0.5;
+}
+
+.remove-item {
+    padding: 0.25rem 0.5rem;
+}
+
+
+/* Hiệu ứng khi hover */
+
+#cart-table tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}

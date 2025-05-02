@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức - LOBEO MACHINERY</title>
+    <!-- Load Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Load Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Load JavaScript -->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* Custom News Styles */
+        
+        .news-section {
+            padding: 60px 0;
+        }
+        
+        .news-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .news-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .news-img-container {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .news-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-img {
+            transform: scale(1.05);
+        }
+        
+        .news-body {
+            padding: 25px;
+        }
+        
+        .news-date {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .news-excerpt {
+            color: #555;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .news-highlight {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .highlight-news {
+            border-left: 4px solid #0d6efd;
+            padding-left: 20px;
+        }
+        
+        .news-sidebar {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .sidebar-title {
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .news-tags {
+            margin-top: 30px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background-color: #0d6efd;
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .news-img-container {
+                height: 180px;
+            }
+            .news-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-primary text-white py-3">
+        <div class="container-lg">
+            <div class="d-flex justify-content-between align-items-center">
+
+                <h1 class="logo m-0">LOBEO MACHINERY</h1>
+
+                <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
+                    <div class="container-fluid p-0">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./index.html">Trang chủ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./gioithieu.html">Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./news.html">Tin tức</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./products.html">sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./policies.html">Liên Hệ</a>
+                                </li>
+                            </ul>
+
+                            <form class="d-flex me-3" role="search">
+                                <input class="form-control form-control-sm" type="search" placeholder="Tìm máy cơ khí..." aria-label="Search">
+                                <button class="btn btn-sm btn-outline-light ms-2" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <div class="d-flex align-items-center">
+
+                    <div class="position-relative me-3">
+                        <a href="../html/cart.html" class="text-white fs-5">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+                            0
+                        </span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="text-white fs-5 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="../html/login.html"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a></li>
+                            <li><a class="dropdown-item" href="../html/register.html"><i class="fas fa-user-plus me-2"></i>Đăng ký</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i>Tài khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="bg-light py-3">
+            <div class="container-lg">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="../index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tin tức</li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- Highlight News -->
+        <section class="news-highlight">
+            <div class="container-lg">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="highlight-news">
+                            <span class="news-category">Nổi bật</span>
+                            <h2 class="mb-3">Triển lãm máy công nghiệp quốc tế 2025</h2>
+                            <p class="lead">LOBEO MACHINERY sẽ tham gia triển lãm máy công nghiệp quốc tế với nhiều sản phẩm công nghệ cao mới nhất.</p>
+                            <a href="news-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="news-sidebar">
+                            <h4 class="sidebar-title">Tin mới nhất</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><a href="#" class="text-dark">Ra mắt dòng máy tiện CNC thế hệ mới</a></li>
+                                <li class="mb-3"><a href="#" class="text-dark">Hội thảo công nghệ gia công kim loại</a></li>
+                                <li><a href="#" class="text-dark">Nhận giải thưởng doanh nghiệp xuất sắc 2024</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news-section">
+            <div class="container-lg">
+                <div class="news-header">
+                    <h1 class="mb-3">Tin tức & Sự kiện</h1>
+                    <p class="lead text-muted">Cập nhật những tin tức mới nhất về ngành cơ khí và hoạt động của LOBEO MACHINERY</p>
+                </div>
+
+                <div class="row">
+                    <!-- News Item 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card">
+                            <div class="news-img-container">
+                                <img src="../img/news-1.jpg" alt="Triển lãm công nghệ" class="news-img">
+                            </div>
+                            <div class="news-body">
+                                <span class="news-category">Sự kiện</span>
+                                <span class="news-date">15/06/2025</span>
+                                <h3 class="news-title">LOBEO tham gia triển lãm công nghệ cơ khí tại Hà Nội</h3>
+                                <p class="news-excerpt">LOBEO MACHINERY sẽ giới thiệu các dòng sản phẩm mới nhất tại triển lãm công nghệ cơ khí diễn ra từ ngày 20-25/06/2025...</p>
+                                <a href="news-detail.html" class="btn btn-outline-primary">Đọc tiếp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card">
+                            <div class="news-img-container">
+                                <img src="../img/news-2.jpg" alt="Giải thưởng" class="news-img">
+                            </div>
+                            <div class="news-body">
+                                <span class="news-category">Thành tích</span>
+                                <span class="news-date">02/06/2025</span>
+                                <h3 class="news-title">LOBEO nhận giải thưởng "Doanh nghiệp cơ khí tiêu biểu 2025"</h3>
+                                <p class="news-excerpt">Với những đóng góp cho ngành cơ khí Việt Nam, LOBEO vinh dự nhận giải thưởng danh giá này...</p>
+                                <a href="news-detail.html" class="btn btn-outline-primary">Đọc tiếp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card">
+                            <div class="news-img-container">
+                                <img src="../img/news-3.jpg" alt="Đào tạo" class="news-img">
+                            </div>
+                            <div class="news-body">
+                                <span class="news-category">Đào tạo</span>
+                                <span class="news-date">25/05/2025</span>
+                                <h3 class="news-title">Khóa đào tạo vận hành máy CNC miễn phí cho sinh viên</h3>
+                                <p class="news-excerpt">LOBEO tổ chức khóa đào tạo vận hành máy CNC miễn phí dành cho sinh viên các trường kỹ thuật trên toàn quốc...</p>
+                                <a href="news-detail.html" class="btn btn-outline-primary">Đọc tiếp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card">
+                            <div class="news-img-container">
+                                <img src="../img/news-4.jpg" alt="Sản phẩm mới" class="news-img">
+                            </div>
+                            <div class="news-body">
+                                <span class="news-category">Sản phẩm</span>
+                                <span class="news-date">12/05/2025</span>
+                                <h3 class="news-title">Ra mắt dòng máy phay CNC LX-500 với công nghệ AI</h3>
+                                <p class="news-excerpt">LOBEO chính thức ra mắt dòng máy phay CNC LX-500 tích hợp trí tuệ nhân tạo, nâng cao hiệu quả gia công...</p>
+                                <a href="news-detail.html" class="btn btn-outline-primary">Đọc tiếp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 5 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card">
+                            <div class="news-img-container">
+                                <img src="../img/news-5.jpg" alt="Hợp tác" class="news-img">
+                            </div>
+                            <div class="news-body">
+                                <span class="news-category">Hợp tác</span>
+                                <span class="news-date">30/04/2025</span>
+                                <h3 class="news-title">LOBEO ký kết hợp tác chiến lược với tập đoàn Mitsubishi</h3>
+                                <p class="news-excerpt">Thỏa thuận hợp tác sẽ mở ra cơ hội phát triển các dòng máy công nghệ cao cho thị trường Đông Nam Á...</p>
+                                <a href="news-detail.html" class="btn btn-outline-primary">Đọc tiếp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 6 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card">
+                            <div class="news-img-container">
+                                <img src="../img/news-6.jpg" alt="Công nghệ" class="news-img">
+                            </div>
+                            <div class="news-body">
+                                <span class="news-category">Công nghệ</span>
+                                <span class="news-date">15/04/2025</span>
+                                <h3 class="news-title">Ứng dụng IoT trong quản lý máy công nghiệp</h3>
+                                <p class="news-excerpt">LOBEO tiên phong ứng dụng công nghệ IoT để giám sát và bảo trì máy móc từ xa, nâng cao hiệu quả sản xuất...</p>
+                                <a href="news-detail.html" class="btn btn-outline-primary">Đọc tiếp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Page navigation" class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Tiếp</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="bg-primary text-white py-5">
+            <div class="container-lg">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h3 class="mb-3">Đăng ký nhận bản tin</h3>
+                        <p class="mb-0">Nhận thông tin mới nhất về sản phẩm và sự kiện từ LOBEO</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="row g-2">
+                            <div class="col-md-8">
+                                <input type="email" class="form-control" placeholder="Email của bạn">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-light w-100">Đăng ký</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="mb-3">LOBEO MACHINERY</h5>
+                    <p>Tiên phong trong lĩnh vực cung cấp máy công nghiệp và giải pháp cơ khí chính xác.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Liên kết</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../index.html" class="text-white">Trang chủ</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Giới thiệu</a></li>
+                        <li class="mb-2"><a href="news.html" class="text-white">Tin tức</a></li>
+                        <li><a href="../products/products.html" class="text-white">Sản phẩm</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Liên hệ</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Số 1, đường ABC, Hà Nội</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 024 1234 5678</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@lobeomachinery.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-3">Kết nối</h5>
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 LOBEO MACHINERY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/news.js"></script>
+</body>
+
+</html>

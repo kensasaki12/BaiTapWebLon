@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Website bán máy cơ khí</title>
+    <!-- Load Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Load Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Load JavaScript -->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/check.js"></script>
+    <link rel="stylesheet" href="../css/cart.css">
+    <script src="../js/header.js"></script>
+
+</head>
+
+<body>
+    <header class="bg-primary text-white py-3">
+        <div class="container-lg">
+            <div class="d-flex justify-content-between align-items-center">
+
+                <h1 class="logo m-0">LOBEO MACHINERY</h1>
+
+                <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
+                    <div class="container-fluid p-0">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./index.html">Trang chủ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./gioithieu.html">Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./news.html">Tin tức</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./products.html">sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./policies.html">Liên Hệ</a>
+                                </li>
+                            </ul>
+
+                            <form class="d-flex me-3" role="search">
+                                <input class="form-control form-control-sm" type="search" placeholder="Tìm máy cơ khí..." aria-label="Search">
+                                <button class="btn btn-sm btn-outline-light ms-2" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <div class="d-flex align-items-center">
+
+                    <div class="position-relative me-3">
+                        <a href="../html/cart.html" class="text-white fs-5">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+                            0
+                        </span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="text-white fs-5 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="../html/login.html"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a></li>
+                            <li><a class="dropdown-item" href="../html/register.html"><i class="fas fa-user-plus me-2"></i>Đăng ký</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="./account.html"><i class="fas fa-user-cog me-2"></i>Tài khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="fas fa-shopping-cart me-2"></i>Giỏ hàng của bạn</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%">Ảnh</th>
+                                            <th style="width: 30%">Sản phẩm</th>
+                                            <th style="width: 20%">Giá</th>
+                                            <th style="width: 20%">Số lượng</th>
+                                            <th style="width: 15%">Tổng</th>
+                                            <th style="width: 5%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cart-items">
+                                        <!-- Sản phẩm sẽ được thêm vào đây bằng JavaScript -->
+                                        <tr id="empty-cart-message">
+                                            <td colspan="6" class="text-center py-5">
+                                                <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                                                <h5>Giỏ hàng của bạn đang trống</h5>
+                                                <a href="../html/products/products.html" class="btn btn-primary mt-3">Tiếp tục mua sắm</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="fas fa-receipt me-2"></i>Tóm tắt đơn hàng</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Tạm tính:</span>
+                                <span id="subtotal">0 VNĐ</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Phí vận chuyển:</span>
+                                <span id="shipping-fee">0 VNĐ</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between fw-bold fs-5">
+                                <span>Tổng cộng:</span>
+                                <span id="total">0 VNĐ</span>
+                            </div>
+                            <button id="checkout-btn" class="btn btn-primary w-100 mt-4" disabled>
+                                    <i class="fas fa-credit-card me-2"></i>Thanh toán
+                                </button>
+                            <a href="./products.html" class="btn btn-outline-primary w-100 mt-2">
+                                <i class="fas fa-arrow-left me-2"></i>Tiếp tục mua sắm
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="fas fa-tags me-2"></i>Mã giảm giá</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Nhập mã giảm giá" id="coupon-code">
+                                <button class="btn btn-outline-primary" type="button" id="apply-coupon">Áp dụng</button>
+                            </div>
+                            <div id="coupon-message" class="small text-success"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/cart.js"></script>
+    <!-- Footer (giống các trang khác) -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container-lg text-center">
+            <p class="mb-0">&copy; 2025 - Website bán máy cơ khí</p>
+        </div>
+    </footer>
+</body>
+
+</html>

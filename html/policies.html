@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Website bán máy cơ khí</title>
+    <!-- Load Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Load Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Load JavaScript -->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/check.js"></script>
+    <link rel="stylesheet" href="../css/banner.css">
+    <script src="../js/header.js"></script>
+</head>
+
+<body>
+    <header class="bg-primary text-white py-3">
+        <div class="container-lg">
+            <div class="d-flex justify-content-between align-items-center">
+
+                <h1 class="logo m-0">LOBEO MACHINERY</h1>
+
+                <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
+                    <div class="container-fluid p-0">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./index.html">Trang chủ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./gioithieu.html">Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./news.html">Tin tức</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./products.html">sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./policies.html">Liên Hệ</a>
+                                </li>
+                            </ul>
+
+                            <form class="d-flex me-3" role="search">
+                                <input class="form-control form-control-sm" type="search" placeholder="Tìm máy cơ khí..." aria-label="Search">
+                                <button class="btn btn-sm btn-outline-light ms-2" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <div class="d-flex align-items-center">
+
+                    <div class="position-relative me-3">
+                        <a href="../html/cart.html" class="text-white fs-5">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+                            0
+                        </span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="text-white fs-5 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="../html/login.html"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a></li>
+                            <li><a class="dropdown-item" href="../html/register.html"><i class="fas fa-user-plus me-2"></i>Đăng ký</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i>Tài khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- Phần chính sách (giữ nguyên) -->
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="mb-0">Chính sách</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="accordion" id="policyAccordion">
+                            <!-- Bảo hành -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#warranty">
+                                    Chính sách bảo hành
+                                </button>
+                                </h2>
+                                <div id="warranty" class="accordion-collapse collapse show" data-bs-parent="#policyAccordion">
+                                    <div class="accordion-body">
+                                        <p>Tất cả sản phẩm được bảo hành 12-24 tháng tùy loại.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Đổi trả -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#return">
+                                    Chính sách đổi trả
+                                </button>
+                                </h2>
+                                <div id="return" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                                    <div class="accordion-body">
+                                        <p>Đổi trả trong vòng 7 ngày nếu có lỗi từ nhà sản xuất.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Vận chuyển -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#shipping">
+                                    Chính sách vận chuyển
+                                </button>
+                                </h2>
+                                <div id="shipping" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                                    <div class="accordion-body">
+                                        <p>Miễn phí vận chuyển trong bán kính 50km.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần liên hệ mới thêm -->
+        <section class="contact-section mt-5">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2>Liên hệ với chúng tôi</h2>
+                    <p class="lead">Mọi thắc mắc xin vui lòng liên hệ qua các kênh sau</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="contact-info-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Địa chỉ</h4>
+                        <p>Số 123, Đường ABC, Quận XYZ, TP. Hà Nội</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="contact-info-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4>Điện thoại</h4>
+                        <p>024 1234 5678</p>
+                        <p>Hotline: 0901 234 567</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="contact-info-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>info@lobeomachinery.com</p>
+                        <p>support@lobeomachinery.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-form">
+                        <h4 class="mb-4">Gửi tin nhắn cho chúng tôi</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Họ và tên</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Số điện thoại</label>
+                                <input type="tel" class="form-control" id="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Nội dung</label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Gửi tin nhắn</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096609283513!2d105.78010841540203!3d21.02887248599838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab86cece9ac1%3A0xa9bc04e04602dd85!2zRlBUIFBvbHl0ZWNobmljLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1629987217974!5m2!1svi!2s"
+                            allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">LOBEO MACHINERY</h5>
+                    <p>Địa chỉ: Số 123, Đường ABC, Quận XYZ, TP. Hà Nội</p>
+                    <p>Điện thoại: 024 1234 5678</p>
+                    <p>Email: info@lobeomachinery.com</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Liên kết nhanh</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../../html/index.html" class="text-white">Trang chủ</a></li>
+                        <li class="mb-2"><a href="../gioithieu.html" class="text-white">Giới thiệu</a></li>
+                        <li class="mb-2"><a href="../../html/news/news.html" class="text-white">Tin tức</a></li>
+                        <li class="mb-2"><a href="../html/products/products.html" class="text-white">Sản phẩm</a></li>
+                        <li><a href="../html/admin.html" class="text-white">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Kết nối với chúng tôi</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 LOBEO MACHINERY. Bảo lưu mọi quyền.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/banner.js"></script>
+    <script>
+        // Xử lý form liên hệ
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Lấy dữ liệu từ form
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+
+            // Ở đây bạn có thể thêm code gửi dữ liệu đến server
+            // Hoặc chỉ hiển thị thông báo thành công
+            alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
