@@ -1,46 +1,96 @@
-document.getElementById('register-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+function generateCaptcha() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 5; i++) {
+    code += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  document.getElementById('captcha-code').textContent = code;
+  return code;
+}
 
-    const username = document.getElementById('register-username').value.trim();
-    const email = document.getElementById('register-email').value.trim();
-    const password = document.getElementById('register-password').value;
-    const confirmPassword = document.getElementById('register-confirm-password').value;
-    const errorMessage = document.getElementById('error-message');
+let captchaCode = generateCaptcha();
 
+document.getElementById('show-password').addEventListener('change', function () {
+  const type = this.checked ? 'text' : 'password';
+  document.getElementById('register-password').type = type;
+  document.getElementById('register-confirm-password').type = type;
+});
 
-    errorMessage.style.display = 'none';
-    errorMessage.textContent = '';
+document.getElementById('register-form').addEventListener('submit', function (event) {
+  event.preventDefault();
 
-    if (!username || !email || !password || !confirmPassword) {
-        errorMessage.textContent = 'Vui lòng điền đầy đủ thông tin.';
-        errorMessage.style.display = 'block';
-        return;
-    }
+  // Lấy giá trị nhập
+  const username = document.getElementById('register-username').value.trim();
+  const email = document.getElementById('register-email').value.trim();
+  const password = document.getElementById('register-password').value;
+  const confirmPassword = document.getElementById('register-confirm-password').value;
+  const captchaInput = document.getElementById('captcha-input').value.trim();
 
-    if (password !== confirmPassword) {
-        errorMessage.textContent = 'Mật khẩu nhập lại không khớp.';
-        errorMessage.style.display = 'block';
-        return;
-    }
+  // Các vùng hiển thị lỗi
+  const errUsername = document.getElementById('error-username');
+  const errEmail = document.getElementById('error-email');
+  const errPassword = document.getElementById('error-password');
+  const errConfirmPassword = document.getElementById('error-confirm-password');
+  const errCaptcha = document.getElementById('error-captcha');
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        errorMessage.textContent = 'Email không hợp lệ.';
-        errorMessage.style.display = 'block';
-        return;
-    }
+  // Reset thông báo lỗi
+  errUsername.textContent = '';
+  errEmail.textContent = '';
+  errPassword.textContent = '';
+  errConfirmPassword.textContent = '';
+  errCaptcha.textContent = '';
 
-    if (localStorage.getItem(username)) {
-        errorMessage.textContent = 'Tên đăng nhập đã tồn tại.';
-        errorMessage.style.display = 'block';
-        return;
-    }
+  let hasError = false;
 
-    localStorage.setItem(username, JSON.stringify({
-        email: email,
-        password: password
-    }));
+  // Kiểm tra các trường
+  if (!username) {
+    errUsername.textContent = 'Vui lòng nhập tên đăng nhập.';
+    hasError = true;
+  }
 
-  
-    window.location.href = 'login.html';
+  if (!email) {
+    errEmail.textContent = 'Vui lòng nhập email.';
+    hasError = true;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errEmail.textContent = 'Email không hợp lệ.';
+    hasError = true;
+  }
+
+  if (!password) {
+    errPassword.textContent = 'Vui lòng nhập mật khẩu.';
+    hasError = true;
+  } else if (password.length < 6 || !/\d/.test(password) || !/[a-zA-Z]/.test(password)) {
+    errPassword.textContent = 'Mật khẩu phải có ít nhất 6 ký tự, gồm chữ và số.';
+    hasError = true;
+  }
+
+  if (!confirmPassword) {
+    errConfirmPassword.textContent = 'Vui lòng nhập lại mật khẩu.';
+    hasError = true;
+  } else if (password !== confirmPassword) {
+    errConfirmPassword.textContent = 'Mật khẩu nhập lại không khớp.';
+    hasError = true;
+  }
+
+  if (!captchaInput || captchaInput.toUpperCase() !== captchaCode) {
+    errCaptcha.textContent = 'Mã xác nhận không đúng.';
+    hasError = true;
+    captchaCode = generateCaptcha(); // Tạo mã mới
+  }
+
+  if (localStorage.getItem(username)) {
+    errUsername.textContent = 'Tên đăng nhập đã tồn tại.';
+    hasError = true;
+  }
+
+  if (hasError) return;
+
+  // Lưu vào localStorage
+  localStorage.setItem(username, JSON.stringify({
+    email: email,
+    password: password
+  }));
+
+  // Chuyển hướng
+  window.location.href = 'login.html';
 });
