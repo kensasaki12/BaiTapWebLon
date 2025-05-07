@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Thanh toán
     checkoutBtn.addEventListener('click', function() {
         localStorage.setItem('checkoutCart', JSON.stringify(cart));
-        window.location.href = '../checkout/checkout.html';
+        window.location.href = 'checkout.html';
     });
 
     // Khởi tạo
