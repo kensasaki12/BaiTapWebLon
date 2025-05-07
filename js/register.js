@@ -7,9 +7,15 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     const confirmPassword = document.getElementById('register-confirm-password').value;
     const errorMessage = document.getElementById('error-message');
 
-    // Reset thông báo lỗi
+
     errorMessage.style.display = 'none';
     errorMessage.textContent = '';
+
+    if (!username || !email || !password || !confirmPassword) {
+        errorMessage.textContent = 'Vui lòng điền đầy đủ thông tin.';
+        errorMessage.style.display = 'block';
+        return;
+    }
 
     if (password !== confirmPassword) {
         errorMessage.textContent = 'Mật khẩu nhập lại không khớp.';
@@ -17,17 +23,24 @@ document.getElementById('register-form').addEventListener('submit', function(eve
         return;
     }
 
-    if (!email.includes('@') || !email.includes('.')) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
         errorMessage.textContent = 'Email không hợp lệ.';
         errorMessage.style.display = 'block';
         return;
     }
 
-    // Lưu thông tin vào localStorage
+    if (localStorage.getItem(username)) {
+        errorMessage.textContent = 'Tên đăng nhập đã tồn tại.';
+        errorMessage.style.display = 'block';
+        return;
+    }
+
     localStorage.setItem(username, JSON.stringify({
         email: email,
         password: password
     }));
 
+  
     window.location.href = 'login.html';
 });
