@@ -55,7 +55,7 @@ function handleViewDetail() {
     }));
 
     // Chuyển hướng đến trang chi tiết sản phẩm
-    window.location.href = "../html/products-detail.html";
+    window.location.href = "/BaiTapWebLon/html/products-detail.html";
 }
 
 // Thiết lập các nút "Thêm vào giỏ" và "Xem chi tiết"
