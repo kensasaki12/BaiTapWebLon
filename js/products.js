@@ -1,4 +1,3 @@
-// Hàm cập nhật số lượng giỏ hàng
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartCount = document.querySelector('.cart-count');
@@ -11,7 +10,6 @@ function updateCartCount() {
     }
 }
 
-// Hàm xử lý khi click nút "Thêm vào giỏ"
 function handleAddToCart() {
     const productCard = this.closest('.product-card');
     const productName = productCard.querySelector('.product-title').textContent;
@@ -19,14 +17,11 @@ function handleAddToCart() {
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
     const existingProductIndex = cart.findIndex(item => item.name === productName);
 
     if (existingProductIndex >= 0) {
-        // Nếu đã có thì tăng số lượng
         cart[existingProductIndex].quantity = (cart[existingProductIndex].quantity || 1) + 1;
     } else {
-        // Nếu chưa có thì thêm mới
         cart.push({
             name: productName,
             price: productPrice,
@@ -40,46 +35,55 @@ function handleAddToCart() {
     alert('Đã thêm ' + productName + ' vào giỏ hàng');
 }
 
-// Hàm xử lý khi click nút "Xem chi tiết"
 function handleViewDetail() {
     const productCard = this.closest('.product-card');
     const productName = productCard.querySelector('.product-title').textContent;
     const productPrice = productCard.querySelector('.product-price').textContent;
     const productImage = productCard.querySelector('.product-img').src;
 
-    // Lưu thông tin sản phẩm vào sessionStorage để trang chi tiết có thể lấy
+    const productIdMap = {
+        "Máy tiện CNC LOBEO T-1000": "T1000-2025",
+        "Máy tiện CNC đa năng T-800": "T800-2025",
+        "Máy tiện CNC cao cấp T-2000": "T2000-2025",
+        "Máy phay CNC LOBEO F-500": "F500-2025",
+        "Máy phay đứng F-300": "F300-2025",
+        "Máy phay ngang F-700": "F700-2025",
+        "Máy cắt laser LOBEO L-1000": "L1000-2025",
+        "Máy cắt laser fiber L-500": "L500-2025",
+        "Máy cắt laser CO2 L-300": "L300-2025",
+        "Dao phay hợp kim cao cấp": "PT001",
+        "Mũi khoan từ chính hãng": "PT002",
+        "Đầu kẹp dao BT40": "PT003"
+    };
+
+    const productId = productIdMap[productName] || "T1000-2025";
+
     sessionStorage.setItem('currentProduct', JSON.stringify({
+        id: productId,
         name: productName,
         price: productPrice,
         image: productImage
     }));
 
-    // Chuyển hướng đến trang chi tiết sản phẩm
-    window.location.href = "/BaiTapWebLon/html/products-detail.html";
+    window.location.href = `../html/products-detail.html?id=${productId}`;
 }
 
-// Thiết lập các nút "Thêm vào giỏ" và "Xem chi tiết"
 function setupProductButtons() {
     document.querySelectorAll('.btn-primary').forEach(button => {
         if (button.textContent.trim() === 'Thêm vào giỏ') {
-            // Xóa event listener cũ nếu có
             button.removeEventListener('click', handleAddToCart);
-            // Thêm event listener mới
             button.addEventListener('click', handleAddToCart);
         }
     });
 
     document.querySelectorAll('.btn-outline-primary').forEach(button => {
         if (button.textContent.trim() === 'Xem chi tiết') {
-            // Xóa event listener cũ nếu có
             button.removeEventListener('click', handleViewDetail);
-            // Thêm event listener mới
             button.addEventListener('click', handleViewDetail);
         }
     });
 }
 
-// Xử lý lọc sản phẩm
 document.querySelector('.filter-section button').addEventListener('click', function() {
     const category = document.getElementById('category-filter').value;
     const price = document.getElementById('price-filter').value;
@@ -102,11 +106,9 @@ document.querySelector('.filter-section button').addEventListener('click', funct
         behavior: 'smooth'
     });
 
-    // Thiết lập lại các nút sau khi lọc
     setupProductButtons();
 });
 
-// Khởi tạo khi trang được tải
 document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
     setupProductButtons();
