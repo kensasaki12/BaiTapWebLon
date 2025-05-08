@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id') || 'T1000-2025'; // Mặc định nếu không có ID
+    const productId = urlParams.get('id') || 'T1000-2025'; 
     
     const products = [
         {
