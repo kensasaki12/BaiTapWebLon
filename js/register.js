@@ -1,90 +1,119 @@
 function generateCaptcha() {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let code = '';
-  for (let i = 0; i < 5; i++) {
-    code += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  document.getElementById('captcha-code').textContent = code;
-  return code;
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let code = '';
+    for (let i = 0; i < 5; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById('captcha-code').textContent = code;
+    return code;
 }
 
 let captchaCode = generateCaptcha();
 
-document.getElementById('show-password').addEventListener('change', function () {
-  const type = this.checked ? 'text' : 'password';
-  document.getElementById('register-password').type = type;
-  document.getElementById('register-confirm-password').type = type;
+
+document.getElementById('show-password').addEventListener('change', function() {
+    const type = this.checked ? 'text' : 'password';
+    document.getElementById('register-password').type = type;
+    document.getElementById('register-confirm-password').type = type;
 });
 
-document.getElementById('register-form').addEventListener('submit', function (event) {
-  event.preventDefault();
 
-  const username = document.getElementById('register-username').value.trim();
-  const email = document.getElementById('register-email').value.trim();
-  const password = document.getElementById('register-password').value;
-  const confirmPassword = document.getElementById('register-confirm-password').value;
-  const captchaInput = document.getElementById('captcha-input').value.trim();
+function validateField(fieldId, errorId, validationFn) {
+    const value = document.getElementById(fieldId).value.trim();
+    const errorElement = document.getElementById(errorId);
+    const { isValid, message } = validationFn(value);
 
-  const errUsername = document.getElementById('error-username');
-  const errEmail = document.getElementById('error-email');
-  const errPassword = document.getElementById('error-password');
-  const errConfirmPassword = document.getElementById('error-confirm-password');
-  const errCaptcha = document.getElementById('error-captcha');
+    if (!isValid) {
+        errorElement.textContent = message;
+        return false;
+    } else {
+        errorElement.textContent = '';
+        return true;
+    }
+}
 
-  errUsername.textContent = '';
-  errEmail.textContent = '';
-  errPassword.textContent = '';
-  errConfirmPassword.textContent = '';
-  errCaptcha.textContent = '';
 
-  let hasError = false;
+const validations = {
+    username: (value) => {
+        if (!value) return { isValid: false, message: 'Vui lòng nhập tên đăng nhập.' };
+        if (localStorage.getItem(value)) return { isValid: false, message: 'Tên đăng nhập đã tồn tại.' };
+        return { isValid: true, message: '' };
+    },
+    email: (value) => {
+        if (!value) return { isValid: false, message: 'Vui lòng nhập email.' };
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return { isValid: false, message: 'Email không hợp lệ.' };
+        return { isValid: true, message: '' };
+    },
+    password: (value) => {
+        if (!value) return { isValid: false, message: 'Vui lòng nhập mật khẩu.' };
+        if (value.length < 6 || !/\d/.test(value) || !/[a-zA-Z]/.test(value)) {
+            return { isValid: false, message: 'Mật khẩu phải có ít nhất 6 ký tự, gồm chữ và số.' };
+        }
+        return { isValid: true, message: '' };
+    },
+    confirmPassword: (value) => {
+        const password = document.getElementById('register-password').value;
+        if (!value) return { isValid: false, message: 'Vui lòng nhập lại mật khẩu.' };
+        if (value !== password) return { isValid: false, message: 'Mật khẩu nhập lại không khớp.' };
+        return { isValid: true, message: '' };
+    },
+    captcha: (value) => {
+        if (value && value.toUpperCase() !== captchaCode) {
+            return { isValid: false, message: 'Mã xác nhận không đúng.' };
+        }
+        return { isValid: true, message: '' };
+    }
+};
 
-  if (!username) {
-    errUsername.textContent = 'Vui lòng nhập tên đăng nhập.';
-    hasError = true;
-  }
 
-  if (!email) {
-    errEmail.textContent = 'Vui lòng nhập email.';
-    hasError = true;
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errEmail.textContent = 'Email không hợp lệ.';
-    hasError = true;
-  }
+document.getElementById('register-username').addEventListener('blur', function() {
+    validateField('register-username', 'error-username', validations.username);
+});
 
-  if (!password) {
-    errPassword.textContent = 'Vui lòng nhập mật khẩu.';
-    hasError = true;
-  } else if (password.length < 6 || !/\d/.test(password) || !/[a-zA-Z]/.test(password)) {
-    errPassword.textContent = 'Mật khẩu phải có ít nhất 6 ký tự, gồm chữ và số.';
-    hasError = true;
-  }
+document.getElementById('register-email').addEventListener('blur', function() {
+    validateField('register-email', 'error-email', validations.email);
+});
 
-  if (!confirmPassword) {
-    errConfirmPassword.textContent = 'Vui lòng nhập lại mật khẩu.';
-    hasError = true;
-  } else if (password !== confirmPassword) {
-    errConfirmPassword.textContent = 'Mật khẩu nhập lại không khớp.';
-    hasError = true;
-  }
+document.getElementById('register-password').addEventListener('blur', function() {
+    validateField('register-password', 'error-password', validations.password);
 
-  if (!captchaInput || captchaInput.toUpperCase() !== captchaCode) {
-    errCaptcha.textContent = 'Mã xác nhận không đúng.';
-    hasError = true;
-    captchaCode = generateCaptcha(); 
-  }
+    validateField('register-confirm-password', 'error-confirm-password', validations.confirmPassword);
+});
 
-  if (localStorage.getItem(username)) {
-    errUsername.textContent = 'Tên đăng nhập đã tồn tại.';
-    hasError = true;
-  }
+document.getElementById('register-confirm-password').addEventListener('blur', function() {
+    validateField('register-confirm-password', 'error-confirm-password', validations.confirmPassword);
+});
 
-  if (hasError) return;
+document.getElementById('captcha-input').addEventListener('blur', function() {
+    validateField('captcha-input', 'error-captcha', validations.captcha);
+});
 
-  localStorage.setItem(username, JSON.stringify({
-    email: email,
-    password: password
-  }));
 
-  window.location.href = 'login.html';
+document.getElementById('register-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+
+    const isUsernameValid = validateField('register-username', 'error-username', validations.username);
+    const isEmailValid = validateField('register-email', 'error-email', validations.email);
+    const isPasswordValid = validateField('register-password', 'error-password', validations.password);
+    const isConfirmPasswordValid = validateField('register-confirm-password', 'error-confirm-password', validations.confirmPassword);
+    const isCaptchaValid = validateField('captcha-input', 'error-captcha', validations.captcha);
+
+    if (!isUsernameValid || !isEmailValid || !isPasswordValid || !isConfirmPasswordValid || !isCaptchaValid) {
+        return;
+    }
+
+
+    const username = document.getElementById('register-username').value.trim();
+    const email = document.getElementById('register-email').value.trim();
+    const password = document.getElementById('register-password').value;
+
+
+    localStorage.setItem(username, JSON.stringify({
+        email: email,
+        password: password
+    }));
+
+
+    window.location.href = 'login.html';
 });
