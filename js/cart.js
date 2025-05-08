@@ -5,7 +5,6 @@ function normalizePrice(priceStr) {
     return isNaN(number) ? 0 : number;
 }
 
-
 function formatCurrency(amount) {
     return new Intl.NumberFormat('vi-VN', {
         style: 'currency',
@@ -24,11 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const couponCodeInput = document.getElementById('coupon-code');
     const couponMessage = document.getElementById('coupon-message');
 
-  
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let discount = 0; 
+    let discount = 0;
 
-   
     function renderCart() {
         cartItemsContainer.innerHTML = '';
 
@@ -81,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCartSummary();
     }
 
-   
     function updateCartSummary() {
         let subtotal = 0;
 
@@ -91,10 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subtotal += price * (item.quantity || 1);
         });
 
-      
         const shippingFee = subtotal > 10000000 ? 0 : 50000;
-
-       
         const discountedTotal = subtotal * (1 - discount);
         const total = discountedTotal + shippingFee;
 
@@ -107,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
         totalElement.textContent = formatCurrency(total);
     }
 
-    
     function handleQuantityChange(index, change) {
         if (!cart[index]) return;
 
@@ -118,14 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    
+    function handleRemoveItem(index) {
         if (confirm('Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?')) {
             cart.splice(index, 1);
             saveCart();
         }
     }
 
-   
     function applyCoupon() {
         const couponCode = couponCodeInput.value.trim();
 
@@ -138,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        
         const validCoupons = {
             'LOBEO10': 0.1, 
             'LOBEO5': 0.05 
@@ -159,14 +149,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function saveCart() {
-      
         cart = cart.filter(item => item && item.id);
         localStorage.setItem('cart', JSON.stringify(cart));
         renderCart();
         updateHeaderCartCount();
     }
 
-   
     function updateHeaderCartCount() {
         const totalItems = cart.reduce((total, item) => total + (item ? item.quantity || 1 : 0), 0);
         const cartCountElements = document.querySelectorAll('.cart-count');
@@ -177,7 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    
     cartItemsContainer.addEventListener('click', function(e) {
         const indexElement = e.target.closest('[data-index]');
         if (!indexElement) return;
@@ -193,7 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
- 
     cartItemsContainer.addEventListener('change', function(e) {
         if (e.target.classList.contains('quantity-input')) {
             const index = e.target.dataset.index;
@@ -208,19 +194,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    
     applyCouponBtn.addEventListener('click', applyCoupon);
     couponCodeInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') applyCoupon();
     });
 
-   
     checkoutBtn.addEventListener('click', function() {
         localStorage.setItem('checkoutCart', JSON.stringify(cart));
         window.location.href = 'checkout.html';
     });
 
-   
     renderCart();
     updateHeaderCartCount();
 });
