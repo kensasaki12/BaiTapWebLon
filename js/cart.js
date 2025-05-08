@@ -1,12 +1,11 @@
-// Hàm chuẩn hóa giá tiền từ chuỗi sang số
 function normalizePrice(priceStr) {
     if (!priceStr) return 0;
-    // Xóa tất cả ký tự không phải số
+
     const number = parseFloat(priceStr.replace(/[^\d]/g, ''));
     return isNaN(number) ? 0 : number;
 }
 
-// Hàm định dạng tiền tệ
+
 function formatCurrency(amount) {
     return new Intl.NumberFormat('vi-VN', {
         style: 'currency',
@@ -15,7 +14,6 @@ function formatCurrency(amount) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // DOM elements
     const cartItemsContainer = document.getElementById('cart-items');
     const emptyCartMessage = document.getElementById('empty-cart-message');
     const subtotalElement = document.getElementById('subtotal');
@@ -26,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const couponCodeInput = document.getElementById('coupon-code');
     const couponMessage = document.getElementById('coupon-message');
 
-    // Lấy giỏ hàng từ localStorage
+  
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let discount = 0; // % giảm giá
+    let discount = 0; 
 
-    // Hiển thị giỏ hàng
+   
     function renderCart() {
         cartItemsContainer.innerHTML = '';
 
@@ -83,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCartSummary();
     }
 
-    // Cập nhật tổng tiền
+   
     function updateCartSummary() {
         let subtotal = 0;
 
@@ -93,10 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
             subtotal += price * (item.quantity || 1);
         });
 
-        // Tính phí vận chuyển (miễn phí ship cho đơn > 10tr)
+      
         const shippingFee = subtotal > 10000000 ? 0 : 50000;
 
-        // Tính tổng sau giảm giá
+       
         const discountedTotal = subtotal * (1 - discount);
         const total = discountedTotal + shippingFee;
 
@@ -109,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         totalElement.textContent = formatCurrency(total);
     }
 
-    // Xử lý sự kiện tăng/giảm số lượng
+    
     function handleQuantityChange(index, change) {
         if (!cart[index]) return;
 
@@ -120,15 +118,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Xử lý xóa sản phẩm
-    function handleRemoveItem(index) {
+    
         if (confirm('Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?')) {
             cart.splice(index, 1);
             saveCart();
         }
     }
 
-    // Áp dụng mã giảm giá
+   
     function applyCoupon() {
         const couponCode = couponCodeInput.value.trim();
 
@@ -141,10 +138,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Danh sách mã giảm giá hợp lệ
+        
         const validCoupons = {
-            'LOBEO10': 0.1, // Giảm 10%
-            'LOBEO5': 0.05 // Giảm 5%
+            'LOBEO10': 0.1, 
+            'LOBEO5': 0.05 
         };
 
         if (validCoupons[couponCode]) {
@@ -161,16 +158,15 @@ document.addEventListener('DOMContentLoaded', function() {
         couponMessage.classList.add(type === 'success' ? 'text-success' : 'text-danger');
     }
 
-    // Lưu giỏ hàng
     function saveCart() {
-        // Lọc bỏ các item không hợp lệ
+      
         cart = cart.filter(item => item && item.id);
         localStorage.setItem('cart', JSON.stringify(cart));
         renderCart();
         updateHeaderCartCount();
     }
 
-    // Cập nhật số lượng trên header
+   
     function updateHeaderCartCount() {
         const totalItems = cart.reduce((total, item) => total + (item ? item.quantity || 1 : 0), 0);
         const cartCountElements = document.querySelectorAll('.cart-count');
@@ -181,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Xử lý sự kiện
+    
     cartItemsContainer.addEventListener('click', function(e) {
         const indexElement = e.target.closest('[data-index]');
         if (!indexElement) return;
@@ -197,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Xử lý thay đổi số lượng từ input
+ 
     cartItemsContainer.addEventListener('change', function(e) {
         if (e.target.classList.contains('quantity-input')) {
             const index = e.target.dataset.index;
@@ -212,19 +208,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Áp dụng mã giảm giá
+    
     applyCouponBtn.addEventListener('click', applyCoupon);
     couponCodeInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') applyCoupon();
     });
 
-    // Thanh toán
+   
     checkoutBtn.addEventListener('click', function() {
         localStorage.setItem('checkoutCart', JSON.stringify(cart));
         window.location.href = 'checkout.html';
     });
 
-    // Khởi tạo
+   
     renderCart();
     updateHeaderCartCount();
 });
