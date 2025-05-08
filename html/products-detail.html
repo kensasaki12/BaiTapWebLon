@@ -11,6 +11,30 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../css/product-detail.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script>
+    function changeImage(src) {
+        document.getElementById('mainImage').src = src;
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach(thumb => thumb.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+
+    function increaseQuantity() {
+        const input = document.getElementById('quantity');
+        let value = parseInt(input.value);
+        if (!isNaN(value)) {
+            input.value = value + 1;
+        }
+    }
+
+    function decreaseQuantity() {
+        const input = document.getElementById('quantity');
+        let value = parseInt(input.value);
+        if (!isNaN(value) && value > 1) {
+            input.value = value - 1;
+        }
+    }
+    </script>
 
 </head>
 
@@ -106,8 +130,8 @@
                         <div class="product-gallery">
                             <img id="mainImage" src="../img/cac-loai-may-tien-1.jpg" alt="Máy tiện CNC T-1000" class="main-image">
                             <div class="thumbnail-container">
-                                <img src="../img/cac-loai-may-tien-1.jpg" alt="Máy tiện CNC T-1000 - Ảnh 1" class="thumbnail active" onclick="changeImage('../../img/product-large-1.jpg')">
-                                <img src="../img/cac-loai-may-tien-1.jpg" alt="Máy tiện CNC T-1000 - Ảnh 2" class="thumbnail" onclick="changeImage('../../img/product-large-2.jpg')">
+                                <img src="../img/cac-loai-may-tien-1.jpg" alt="Máy tiện CNC T-1000 - Ảnh 1" class="thumbnail active" onclick="changeImage('../img/cac-loai-may-tien-1.jpg')">
+                                <img src="../img/cac-loai-may-tien-1.jpg" alt="Máy tiện CNC T-1000 - Ảnh 2" class="thumbnail" onclick="changeImage('../img/cac-loai-may-tien-1.jpg')">
                                 <img src="../img/product-thumb-3.jpg" alt="Máy tiện CNC T-1000 - Ảnh 3" class="thumbnail" onclick="changeImage('../../img/product-large-3.jpg')">
                                 <img src="../img/product-thumb-4.jpg" alt="Máy tiện CNC T-1000 - Ảnh 4" class="thumbnail" onclick="changeImage('../../img/product-large-4.jpg')">
                             </div>
