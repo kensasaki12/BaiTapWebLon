@@ -19,21 +19,18 @@ document.getElementById('show-password').addEventListener('change', function () 
 document.getElementById('register-form').addEventListener('submit', function (event) {
   event.preventDefault();
 
-  // Lấy giá trị nhập
   const username = document.getElementById('register-username').value.trim();
   const email = document.getElementById('register-email').value.trim();
   const password = document.getElementById('register-password').value;
   const confirmPassword = document.getElementById('register-confirm-password').value;
   const captchaInput = document.getElementById('captcha-input').value.trim();
 
-  // Các vùng hiển thị lỗi
   const errUsername = document.getElementById('error-username');
   const errEmail = document.getElementById('error-email');
   const errPassword = document.getElementById('error-password');
   const errConfirmPassword = document.getElementById('error-confirm-password');
   const errCaptcha = document.getElementById('error-captcha');
 
-  // Reset thông báo lỗi
   errUsername.textContent = '';
   errEmail.textContent = '';
   errPassword.textContent = '';
@@ -42,7 +39,6 @@ document.getElementById('register-form').addEventListener('submit', function (ev
 
   let hasError = false;
 
-  // Kiểm tra các trường
   if (!username) {
     errUsername.textContent = 'Vui lòng nhập tên đăng nhập.';
     hasError = true;
@@ -75,7 +71,7 @@ document.getElementById('register-form').addEventListener('submit', function (ev
   if (!captchaInput || captchaInput.toUpperCase() !== captchaCode) {
     errCaptcha.textContent = 'Mã xác nhận không đúng.';
     hasError = true;
-    captchaCode = generateCaptcha(); // Tạo mã mới
+    captchaCode = generateCaptcha(); 
   }
 
   if (localStorage.getItem(username)) {
@@ -85,12 +81,10 @@ document.getElementById('register-form').addEventListener('submit', function (ev
 
   if (hasError) return;
 
-  // Lưu vào localStorage
   localStorage.setItem(username, JSON.stringify({
     email: email,
     password: password
   }));
 
-  // Chuyển hướng
   window.location.href = 'login.html';
 });
