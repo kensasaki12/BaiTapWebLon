@@ -4,27 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ - Website bán máy cơ khí</title>
+    <title>Trang chủ - LOBEO MACHINERY</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/jquery-3.7.1.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/check.js"></script>
     <link rel="stylesheet" href="../css/banner.css">
+    <link rel="stylesheet" href="../css/product-card.css">
+    <style>
+        
+        .feature-box {
+            padding: 30px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            text-align: center;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #0d6efd;
+        }
+        
+        .news-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .news-date {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 
 <body>
     <header class="bg-primary text-white py-3">
         <div class="container-lg">
             <div class="d-flex justify-content-between align-items-center">
-
-               <h1 class="logo m-0 d-flex align-items-center">
-                    <img src="../img/logo.png" alt="Lobeo Machinery Logo" class="me-2" style="height: 40px;">
-                    <span>LOBEO MACHINERY</span>
-                </h1>
-
-
+                <h1 class="logo m-0">LOBEO MACHINERY</h1>
 
                 <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
                     <div class="container-fluid p-0">
@@ -44,35 +99,30 @@
                                     <a class="nav-link" href="./news.html">Tin tức</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./products.html">sản phẩm</a>
+                                    <a class="nav-link" href="./products.html">Sản phẩm</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./policies.html">Liên Hệ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./sitemap.html">sitemap</a>
+                                    <a class="nav-link" href="./policies.html">Liên hệ</a>
                                 </li>
                             </ul>
 
                             <form class="d-flex me-3" role="search">
                                 <input class="form-control form-control-sm" type="search" placeholder="Tìm máy cơ khí..." aria-label="Search">
                                 <button class="btn btn-sm btn-outline-light ms-2" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </form>
                         </div>
                     </div>
                 </nav>
 
-
                 <div class="d-flex align-items-center">
-
                     <div class="position-relative me-3">
                         <a href="../html/cart.html" class="text-white fs-5">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
-                            0
-                        </span>
+                                0
+                            </span>
                         </a>
                     </div>
 
@@ -94,11 +144,10 @@
         </div>
     </header>
 
-
     <main class="container-lg my-5">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-md-3 d-none d-md-block">
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-header bg-primary text-white">
                         <h5 class="mb-0">
                             <i class="fas fa-list-ul me-2"></i> Danh mục sản phẩm
@@ -106,20 +155,17 @@
                     </div>
                     <div class="card-body p-0">
                         <div class="list-group list-group-flush">
-                            <a href="./products.html" class="list-group-item list-group-item-action">
-                                <i class="fas fa-caret-right me-2"></i> Máy tiện CNC
+                            <a href="./products.html#may-tien" class="list-group-item list-group-item-action">
+                                <i class="fas fa-cog me-2"></i> Máy tiện CNC
                             </a>
-                            <a href="./products.html" class="list-group-item list-group-item-action">
-                                <i class="fas fa-caret-right me-2"></i> Máy phay công nghiệp
+                            <a href="./products.html#may-phay" class="list-group-item list-group-item-action">
+                                <i class="fas fa-cogs me-2"></i> Máy phay công nghiệp
                             </a>
-                            <a href="./products.html" class="list-group-item list-group-item-action">
-                                <i class="fas fa-caret-right me-2"></i> Máy cắt laser
+                            <a href="./products.html#may-cat-laser" class="list-group-item list-group-item-action">
+                                <i class="fas fa-cut me-2"></i> Máy cắt laser
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <i class="fas fa-caret-right me-2"></i> Máy hàn công nghệ cao
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <i class="fas fa-caret-right me-2"></i> Phụ tùng thay thế
+                            <a href="./products.html#phu-tung" class="list-group-item list-group-item-action">
+                                <i class="fas fa-tools me-2"></i> Phụ tùng thay thế
                             </a>
                         </div>
                     </div>
@@ -129,13 +175,28 @@
                 <div class="banner-slider">
                     <div class="slides-container">
                         <div class="slide active">
-                            <img src="../img/1600w-ocydNULPS3w.webp" alt="Khuyến mãi 1">
+                            <img src="../img/1600w-ocydNULPS3w.webp" alt="Máy cơ khí công nghệ cao">
+                            <div class="slide-caption">
+                                <h3>Công nghệ tiên tiến nhất</h3>
+                                <p>Giải pháp toàn diện cho ngành cơ khí chế tạo</p>
+                                <a href="./products.html" class="btn btn-primary">Xem ngay</a>
+                            </div>
                         </div>
                         <div class="slide">
-                            <img src="../img/1600w-pKjmsTgSGHA.webp" alt="Khuyến mãi 2">
+                            <img src="../img/1600w-pKjmsTgSGHA.webp" alt="Khuyến mãi đặc biệt">
+                            <div class="slide-caption">
+                                <h3>Khuyến mãi đặc biệt</h3>
+                                <p>Giảm giá lên đến 20% cho các dòng máy mới</p>
+                                <a href="./products.html" class="btn btn-primary">Mua ngay</a>
+                            </div>
                         </div>
                         <div class="slide">
-                            <img src="../img/1600w-8-0Q-pSmBqo.webp" alt="Khuyến mãi 3">
+                            <img src="../img/1600w-8-0Q-pSmBqo.webp" alt="Dịch vụ bảo hành">
+                            <div class="slide-caption">
+                                <h3>Bảo hành 24 tháng</h3>
+                                <p>Hỗ trợ kỹ thuật trọn đời sản phẩm</p>
+                                <a href="./policies.html" class="btn btn-primary">Chi tiết</a>
+                            </div>
                         </div>
 
                         <div class="slider-nav">
@@ -156,15 +217,253 @@
                 </div>
             </div>
         </div>
+
+        <section class="mb-5">
+            <div class="alert alert-warning text-center py-3">
+                <h4 class="mb-0">
+                    <i class="fas fa-gift me-2"></i> ƯU ĐÃI ĐẶC BIỆT: Giảm ngay 10% khi đặt hàng online - Áp dụng đến hết ngày 31/12/2025
+                </h4>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title text-center">SẢN PHẨM NỔI BẬT</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <div class="product-badge">Mới</div>
+                        <div class="product-img-container">
+                            <img src="../img/may-tien-1.jpg" alt="Máy tiện CNC T-1000" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy tiện CNC T-1000</h3>
+                            <div class="product-price">450.000.000 VNĐ</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(12 đánh giá)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <div class="product-badge">Bán chạy</div>
+                        <div class="product-img-container">
+                            <img src="../img/may-phay-1.jpg" alt="Máy phay CNC F-500" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy phay CNC F-500</h3>
+                            <div class="product-price">720.000.000 VNĐ</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(24 đánh giá)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <div class="product-badge">Giảm giá</div>
+                        <div class="product-img-container">
+                            <img src="../img/laser-1.jpg" alt="Máy cắt laser L-1000" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Máy cắt laser L-1000</h3>
+                            <div class="product-price">
+                                <span class="old-price">1.650.000.000 VNĐ</span>
+                                <span class="new-price">1.450.000.000 VNĐ</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(8 đánh giá)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-outline-primary">Xem chi tiết</button>
+                                <button class="btn btn-sm btn-primary">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="./products.html" class="btn btn-outline-primary px-4">Xem tất cả sản phẩm</a>
+            </div>
+        </section>
+
+        <section class="mb-5 py-4 bg-light rounded-3">
+            <h2 class="section-title text-center">LÝ DO CHỌN LOBEO MACHINERY</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Chất lượng đảm bảo</h4>
+                        <p>Tất cả sản phẩm đều được nhập khẩu chính hãng với đầy đủ chứng nhận chất lượng quốc tế.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Dịch vụ chuyên nghiệp</h4>
+                        <p>Đội ngũ kỹ thuật viên trình độ cao, sẵn sàng hỗ trợ 24/7 với chính sách bảo hành dài hạn.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h4>Giá cả cạnh tranh</h4>
+                        <p>Chính sách giá ưu đãi cùng nhiều chương trình khuyến mãi hấp dẫn cho khách hàng thân thiết.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title text-center">TIN TỨC & SỰ KIỆN</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="news-card">
+                        <div class="position-relative">
+                            <img src="../img/news-1.jpg" class="card-img-top" alt="Triển lãm máy công nghiệp">
+                            <div class="news-date">15/06/2025</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">LOBEO tham gia triển lãm máy công nghiệp quốc tế</h5>
+                            <p class="card-text">Giới thiệu các dòng máy móc công nghệ mới nhất tại triển lãm Vietnam Manufacturing Expo 2025...</p>
+                            <a href="./news.html" class="btn btn-outline-primary">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="news-card">
+                        <div class="position-relative">
+                            <img src="../img/news-2.jpg" class="card-img-top" alt="Công nghệ mới">
+                            <div class="news-date">02/06/2025</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ra mắt dòng máy tiện CNC thế hệ mới</h5>
+                            <p class="card-text">LOBEO chính thức ra mắt dòng máy tiện CNC T-2000 với nhiều cải tiến đột phá về độ chính xác...</p>
+                            <a href="./news.html" class="btn btn-outline-primary">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="news-card">
+                        <div class="position-relative">
+                            <img src="../img/news-3.jpg" class="card-img-top" alt="Đào tạo kỹ thuật">
+                            <div class="news-date">20/05/2025</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Khóa đào tạo vận hành máy CNC miễn phí</h5>
+                            <p class="card-text">LOBEO tổ chức khóa đào tạo vận hành máy CNC miễn phí cho khách hàng trong tháng 6/2025...</p>
+                            <a href="./news.html" class="btn btn-outline-primary">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title text-center">ĐỐI TÁC CỦA CHÚNG TÔI</h2>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="../img/partner-1.png" alt="Đối tác 1" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="../img/partner-2.png" alt="Đối tác 2" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="../img/partner-3.png" alt="Đối tác 3" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="../img/partner-4.png" alt="Đối tác 4" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="../img/partner-5.png" alt="Đối tác 5" class="img-fluid">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-dark text-white py-4">
-        <div class="container-lg text-center">
-            <p class="mb-0">&copy; 2025 - Website bán máy cơ khí</p>
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="mb-3">LOBEO MACHINERY</h5>
+                    <p>Tiên phong trong lĩnh vực cung cấp máy công nghiệp và giải pháp cơ khí chính xác.</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Liên kết</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../html/index.html" class="text-white">Trang chủ</a></li>
+                        <li class="mb-2"><a href="../html/gioithieu.html" class="text-white">Giới thiệu</a></li>
+                        <li class="mb-2"><a href="../html/products.html" class="text-white">Sản phẩm</a></li>
+                        <li><a href="../html/news.html" class="text-white">Tin tức</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Liên hệ</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Số 1, Đường ABC, Quận XYZ, Hà Nội</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 024 1234 5678</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@lobeomachinery.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-3">Đăng ký nhận tin</h5>
+                    <form>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email của bạn">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 LOBEO MACHINERY. Bảo lưu mọi quyền.</p>
+            </div>
         </div>
     </footer>
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/header.js"></script>
     <script src="../js/banner.js"></script>
+    <script src="../js/product-card.js"></script>
 </body>
 
 </html>
