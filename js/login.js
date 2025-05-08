@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const username = document.getElementById('login-username').value.trim();
             const password = document.getElementById('login-password').value;
 
-            // Kiểm tra dữ liệu đầu vào
             if (!username || !password) {
                 showError('Vui lòng nhập đầy đủ thông tin');
                 return;
@@ -19,13 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const userData = JSON.parse(localStorage.getItem(username));
 
                 if (userData && userData.password === password) {
-                    // Lưu thông tin đăng nhập
                     sessionStorage.setItem('currentUser', JSON.stringify({
                         username: username,
                         name: userData.name || username
                     }));
 
-                    // Chuyển hướng về trang chủ
                     window.location.href = '../html/index.html';
                 } else {
                     showError('Tên đăng nhập hoặc mật khẩu không đúng');
